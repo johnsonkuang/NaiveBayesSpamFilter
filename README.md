@@ -1,10 +1,6 @@
 # CSE 312: Naive Bayes
 
 
-**DEADLINES**
-
-**Due: Friday, February 8th 10:00 PM**
-
 **IMPORTANT**: Try to get started on Naive Bayes early so that you can come to the Office Hours in case you face problems with any of the parts.
 
 ## 0\. Outline
