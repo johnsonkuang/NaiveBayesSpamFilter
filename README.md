@@ -1,9 +1,9 @@
 # CSE 312: Naive Bayes
 
-
 **IMPORTANT**: Try to get started on Naive Bayes early so that you can come to the Office Hours in case you face problems with any of the parts.
 
 ## 0\. Outline
+
 1. [Setting up Git](README.md#1-getting-started)
 2. [Information about the files and file structure](README.md#2-coding-it-up)
 3. [Submitting your assignment](README.md#3-submitting-your-assignment)
@@ -33,20 +33,20 @@ If you are using Eclipse or IntelliJ, many versions come with git already config
 
 #### 1.1.2\. Cloning your Naive Bayes repository
 
-We've created a GitLab repository that you will use to implement Naive Bayes. This repository is hosted on the [CSE GitLab](https://gitlab.cs.washington.edu) site, and you can view it by visiting the GitLab website at `https://gitlab.cs.washington.edu/cse312-19wi/naive-bayes-[your GitLab username]`. If you don't see this repository or are unable to access it, let us know immediately!
+We've created a GitLab repository that you will use to implement Naive Bayes. This repository is hosted on the [CSE GitLab](https://gitlab.cs.washington.edu) site, and you can view it by visiting the GitLab website at `https://gitlab.cs.washington.edu/cse312-20sp/naive-bayes-[your GitLab username]`. If you don't see this repository or are unable to access it, let us know immediately!
 
 The first thing you'll need to do is set up a SSH key to allow communication with GitLab:
 
-1.  If you don't already have one, generate a new SSH key. See [these instructions](http://doc.gitlab.com/ce/ssh/README.html) for details on how to do this.
-2.  Visit the [GitLab SSH key management page](https://gitlab.cs.washington.edu/profile/keys). You'll need to log in using your CSE account.
-3.  Click "Add SSH Key" and paste in your **public** key into the text area.
+1. If you don't already have one, generate a new SSH key. See [these instructions](http://doc.gitlab.com/ce/ssh/README.html) for details on how to do this.
+2. Visit the [GitLab SSH key management page](https://gitlab.cs.washington.edu/profile/keys). You'll need to log in using your CSE account.
+3. Click "Add SSH Key" and paste in your **public** key into the text area.
 
 While you're logged into the GitLab website, browse around to see which projects you have access to. You should have access to `naive-bayes-[your username]`.
 
 We next want to move the code from the GitLab repository onto your local file system. To do this, you'll need to clone the lab repository by issuing the following commands on the command line:
 
 ```sh
-$ git clone git@gitlab.cs.washington.edu:cse312-19wi/naive-bayes-MY_GITLAB_USERNAME.git
+$ git clone git@gitlab.cs.washington.edu:cse312-20sp/naive-bayes-MY_GITLAB_USERNAME.git
 $ cd naive-bayes-MY_GITLAB_USERNAME
 ```
 
@@ -81,7 +81,7 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 286 bytes | 0 bytes/s, done.
 Total 3 (delta 1), reused 0 (delta 0)
-To git@gitlab.cs.washington.edu:cse312-19wi/naive-bayes-username.git
+To git@gitlab.cs.washington.edu:cse312-20sp/naive-bayes-username.git
    cb5be61..9bbce8d  master -> master
 ```
 
@@ -125,17 +125,14 @@ set of all of the distinct tokens in the file.
 #### 2.1.2\. SpamFilterMain.java
 
 The provided main executable file that handles file loading
-for you and 
-calls the NaiveBayes that you'll implement. **DO NOT MODIFY THIS FILE**. 
+for you and calls the NaiveBayes that you'll implement. **DO NOT MODIFY THIS FILE**.
 
 You will not turn in this file. The only file you will turn in
-is `NaiveBayes.java`, 
-which is expected to be run with the given version of `SpamFilterMain.java`.
+is `NaiveBayes.java`, which is expected to be run with the given version of `SpamFilterMain.java`.
 
 #### 2.1.3\. NaiveBayes.java
 
 `NaiveBayes.java`: The file you will modify and implement. A few notes:
-
 
 * **Do NOT modify the provided method headers**.
     Again, the `NaiveBayes.java` you turn in is expected to be run with the given `SpamFilterMain.java`.
@@ -179,7 +176,7 @@ anywhere in the training data.
 and ham training data.
 * Laplace smoothing using constants other than +1 in
 numerator and +2 in denominator.
-*  Dividing numbers of type integer.
+* Dividing numbers of type integer.
 * Forgetting to use log probabilities to prevent underflow
 as discussed in the notes.
 * Multiplying log probabilities together as in Bayes'
@@ -194,16 +191,12 @@ probabilities and comparing them as explained in the notes.
     printing to the output.**
 * If you use Eclipse, remove all package statements before you turn in your source code.
 * Needless to say, you should practice what you've learned
-    in other courses: 
-document your program, use good variable names, keep your code
-clean and straightforward, 
-etc.  Include comments outlining what your program does and
-how. We will not spend time 
-trying to decipher obscure, contorted code. 
+    in other courses:  
+document your program, use good variable names, keep your code clean and straightforward, etc.  Include comments outlining what your program does and how. We will not spend time trying to decipher obscure, contorted code.
 
 ## 3\. Submitting your assignment
 
-You may submit your code multiple times; we will use the latest version you submit that arrives before the deadline. 
+You may submit your code multiple times; we will use the latest version you submit that arrives before the deadline.
 
 The criteria for your lab being submitted on time is that your code must be pushed by the due date and time. This means that if one of the TAs or the instructor were to open up GitLab, they would be able to see your solutions on the GitLab web page.
 
@@ -218,7 +211,7 @@ $ # Now, push this change to GitLab
 $ git push
 ```
 
-Just because your code has been committed on your local machine does not mean that it has been submitted -- it needs to be on GitLab! 
+Just because your code has been committed on your local machine does not mean that it has been submitted -- it needs to be on GitLab!
 
 **Confirm that you see the correct file on GitLab.**
 **If you make any changes on GitLab after the deadline you will get the late penalty.**
@@ -230,7 +223,7 @@ Git is a distributed version control system. This means everything operates offl
 The bad thing is that you may **forget to `git push` your changes**. This is why we strongly, strongly suggest that you **check GitLab to be sure that what you want us to see matches up with what you expect**.  As a second sanity check, you can re-clone your repository in a different directory to confirm the changes:
 
 ```sh
-$ git clone git@gitlab.cs.washington.edu:cse312-19wi/naive-bayes-username.git confirmation_directory
+$ git clone git@gitlab.cs.washington.edu:cse312-20sp/naive-bayes-username.git confirmation_directory
 $ cd confirmation_directory
 $ # ... make sure everything is as you expect ...
 ```
