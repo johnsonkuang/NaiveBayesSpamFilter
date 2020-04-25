@@ -192,7 +192,8 @@ probabilities and comparing them as explained in the notes.
 * If you use Eclipse, remove all package statements before you turn in your source code.
 * Needless to say, you should practice what you've learned
     in other courses:  
-document your program, use good variable names, keep your code clean and straightforward, etc.  Include comments outlining what your program does and how. We will not spend time trying to decipher obscure, contorted code.
+  * document your program, use good variable names, keep your code clean and straightforward, etc.
+  * Include comments outlining what your program does and how. We will not spend time trying to decipher obscure, contorted code.
 
 ## 3\. Submitting your assignment
 
