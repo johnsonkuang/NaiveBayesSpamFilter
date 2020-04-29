@@ -99,7 +99,7 @@ $ git push
 If you don't know Git that well, this probably seemed very arcane. Just keep using Git and you'll understand more and more. We'll provide explicit instructions below on how to use these commands to actually indicate your final lab solution.
 
 ## 2\. Coding it up
-
+**IMPORTANT**: Please go to [resource tab on Ed Discussion board](https://us.edstem.org/courses/377/resources) to download the naivebayesnote.pdf and naivebayesslides.pdf. They are very helpful supplementary matrials for this homework and the note includes a very detailed walkthrough of the maths.
 ### 2.1\. Starter code
 
 #### 2.1.1\. Data
