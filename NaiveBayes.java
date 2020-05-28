@@ -42,25 +42,25 @@ public class NaiveBayes {
         probHam = (double) hams.length / (hams.length + spams.length);
         probSpam = (double) spams.length / (hams.length + spams.length);
 
-        numSpam = spams.length;
-        numHam = hams.length;
+        numSpam = (double) spams.length;
+        numHam = (double) hams.length;
     }
 
     private void propagateProbabilities(File[] emails, Map<String, Double> map) throws IOException{
-        Map<String, Integer> wordCount = new HashMap<>();
+        Map<String, Double> wordCount = new HashMap<>();
         for(File email : emails){
             Set<String> wordList = tokenSet(email);
             //counts each word once because it's a set
             for(String word : wordList){
                 if(!wordCount.containsKey(word)){
-                    wordCount.put(word, 0);
+                    wordCount.put(word, 0.0);
                 }
-                wordCount.put(word, wordCount.get(word) + 1);
+                wordCount.put(word, wordCount.get(word) + 1.0);
             }
         }
 
         for(String word: wordCount.keySet()){
-            map.put(word, (double) ((wordCount.get(word) + 1) / (emails.length + 2)));
+            map.put(word,(((double) wordCount.get(word) + 1.0) / ((double) emails.length + 2.0)));
         }
     }
 
@@ -91,13 +91,13 @@ public class NaiveBayes {
                 if(probabilitySpamMap.containsKey(word)){
                     emailProbSpam += Math.log(probabilitySpamMap.get(word));
                 } else {
-                    emailProbSpam += Math.log((double) 1 / (numSpam + 2));
+                    emailProbSpam += Math.log((double) 1.0 / (numSpam + 2.0));
                 }
 
                 if(probabilityHamMap.containsKey(word)){
                     emailProbHam += Math.log(probabilityHamMap.get(word));
                 } else {
-                    emailProbHam += Math.log((double) 1 / (numHam + 2));
+                    emailProbHam += Math.log((double) 1.0 / (numHam + 2.0));
                 }
             }
 
