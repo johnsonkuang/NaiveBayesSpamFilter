@@ -6,6 +6,23 @@ import java.util.*;
 
 public class NaiveBayes {
 
+    private Map<String, Double> probabilitySpamMap;
+    private Map<String, Double> probabilityHamMap;
+
+    private double probSpam;
+    private double probHam;
+
+    private double numSpam;
+    private double numHam;
+
+    public NaiveBayes(){
+        probabilitySpamMap = new HashMap<>();
+        probabilityHamMap = new HashMap<>();
+
+        probSpam = 0.0;
+        probHam = 0.0;
+    }
+
     /*
      * !! DO NOT CHANGE METHOD HEADER !!
      * If you change the method header here, our grading script won't
@@ -19,8 +36,32 @@ public class NaiveBayes {
      *      spams - email files labeled as 'spam'
      */
     public void train(File[] hams, File[] spams) throws IOException {
-        // TODO: remove the exception and add your code here
-        throw new UnsupportedOperationException("Not implemented.");
+        propagateProbabilities(hams, probabilityHamMap);
+        propagateProbabilities(spams, probabilitySpamMap);
+
+        probHam = (double) hams.length / (hams.length + spams.length);
+        probSpam = (double) spams.length / (hams.length + spams.length);
+
+        numSpam = spams.length;
+        numHam = hams.length;
+    }
+
+    private void propagateProbabilities(File[] emails, Map<String, Double> map) throws IOException{
+        Map<String, Integer> wordCount = new HashMap<>();
+        for(File email : emails){
+            Set<String> wordList = tokenSet(email);
+            //counts each word once because it's a set
+            for(String word : wordList){
+                if(!wordCount.containsKey(word)){
+                    wordCount.put(word, 0);
+                }
+                wordCount.put(word, wordCount.get(word) + 1);
+            }
+        }
+
+        for(String word: wordCount.keySet()){
+            map.put(word, (double) ((wordCount.get(word) + 1) / (emails.length + 2)));
+        }
     }
 
     /*
@@ -40,8 +81,35 @@ public class NaiveBayes {
      *      hams   - set for ham emails that needs to be populated
      */
     public void classify(File[] emails, Set<File> spams, Set<File> hams) throws IOException {
-        // TODO: remove the exception and add your code here
-        throw new UnsupportedOperationException("Not implemented.");
+        for(File email: emails){
+            Set<String> words = tokenSet(email);
+
+            double emailProbSpam = 0.0;
+            double emailProbHam = 0.0;
+
+            for(String word: words){
+                if(probabilitySpamMap.containsKey(word)){
+                    emailProbSpam += Math.log(probabilitySpamMap.get(word));
+                } else {
+                    emailProbSpam += Math.log((double) 1 / (numSpam + 2));
+                }
+
+                if(probabilityHamMap.containsKey(word)){
+                    emailProbHam += Math.log(probabilityHamMap.get(word));
+                } else {
+                    emailProbHam += Math.log((double) 1 / (numHam + 2));
+                }
+            }
+
+            emailProbSpam += Math.log(probSpam);
+            emailProbHam += Math.log(probHam);
+
+            if(emailProbSpam > emailProbHam){
+                spams.add(email);
+            } else {
+                hams.add(email);
+            }
+        }
     }
 
 
