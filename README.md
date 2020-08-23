@@ -7,8 +7,10 @@ or ham depending on the word content within them. We make several adjustments in
 2. We assume that each word in an email is conditionally independent of each other, given that we know whether or not the email is spam (hence naive).
 3. We use Laplace smoothing to make our model more robust. Instead of initializing each word count at 0, we start it at 1. This way none of the probabilities of the words will be 0. To account for overestimation, we add 2 to the denominator as well
 
+An example of the output is provided in [example_output.txt](https://github.com/johnsonkuang/NaiveBayesSpamFilter/example_output.txt)
+
 ### Built With
-Java
+- Java
 
 ## NaiveBayes.java
 The training program for our Naive Bayes model.
